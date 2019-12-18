@@ -37,6 +37,7 @@
   };
 
   var $$ = function(options){
+    this.setOptions(options);
     var urlinfo = $$urlinfo();
     var word = (typeof urlinfo.query.highlight !== "undefined" && urlinfo.query.highlight) ? decodeURI(urlinfo.query.highlight) : "";
     this.setHighlight(word);
@@ -47,6 +48,11 @@
   $$.prototype.options = {
     highlight_class : "highlight",
     form_selector   : "#highlight"
+  };
+
+  $$.prototype.setOptions = function(options){
+    if(!options){return;}
+
   };
 
   $$.prototype.setInputEvent = function(selector){
@@ -159,7 +165,7 @@
   };
 
 
-  $$init();
+  // $$init();
 
   return $$;
 })();
